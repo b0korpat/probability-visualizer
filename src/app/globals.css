@@ -76,6 +76,28 @@ h1 { margin-top: 18px; margin-bottom: 18px; font-size: clamp(28px, 3vw, 42px); }
 @keyframes pieceIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
 .stick-marker { z-index: 4; width: 3px; height: 48px; top: -8px !important; bottom: auto !important; margin-left: -1px; background: #f4f1eb; box-shadow: 0 0 12px rgba(255,255,255,.65); }
 .stick-marker:after { content: 'x'; position: absolute; top: -17px; left: -4px; color: #f4f1eb; font: 11px var(--font-display); }
+.physical-stick { margin: 20px 0 18px; padding: 12px 14px 10px; border: 1px solid #4d5650; background: #242928; }
+.physical-stick-title { display: flex; justify-content: space-between; color: #dce2dc; font: 10px var(--font-display); }
+.physical-stick-title span { color: #89938d; }
+.physical-track { position: relative; height: 17px; margin: 17px 4px 9px; border-radius: 10px; background: linear-gradient(#d8ddd5, #7e8880); box-shadow: 0 0 14px rgba(215,243,107,.12); }
+.physical-track:before, .physical-track:after { content: ''; position: absolute; top: -5px; height: 27px; width: 2px; background: #c9d0c7; }
+.physical-track:before { left: 0; } .physical-track:after { right: 0; }
+.physical-left, .physical-right { position: absolute; top: 22px; color: #8b958e; font: 9px var(--font-display); }
+.physical-left { left: -3px; } .physical-right { right: -4px; }
+.physical-marker { position: absolute; z-index: 2; top: -9px; width: 4px; height: 35px; margin-left: -2px; border-radius: 4px; background: #f7f8f1; box-shadow: 0 0 16px rgba(215,243,107,.9); }
+.physical-marker:after { content: 'x'; position: absolute; top: -18px; left: -3px; color: var(--acid); font: 12px var(--font-display); }
+.physical-pieces { display: flex; justify-content: space-between; color: #abb4ad; font: 10px var(--font-display); }
+.interval-row { display: grid; grid-template-columns: 37px 1fr 140px; align-items: center; gap: 10px; margin-top: 10px; }
+.interval-row > strong { color: #f0f3eb; font: 13px var(--font-display); }
+.interval-row > small { color: #929c95; font: 9px var(--font-display); }
+.interval-track { position: relative; display: block; height: 19px; overflow: hidden; border: 1px solid #4d5750; background: #272d2b; }
+.interval-track i { position: absolute; inset: 0; display: block; }
+.interval-row .stick-a-zone { background: linear-gradient(to right, rgba(215,243,107,.75) 0 40%, transparent 40% 60%, rgba(215,243,107,.75) 60% 100%); }
+.interval-row .stick-a-zone { left: 0; right: auto; width: 100%; }
+.interval-row .stick-b-zone { left: 25%; right: auto; width: 50%; background: rgba(232,155,118,.72); }
+.interval-row .stick-intersection { left: 25%; right: auto; width: 15%; background: rgba(215,243,107,.9); }
+.zh2-stick-art > .stick-scale { margin-left: 47px; margin-right: 124px; }
+.intersection-row { margin-top: 12px; padding-top: 10px; border-top: 1px solid #39413d; }
 .outcome-highlight { border-color: var(--acid) !important; box-shadow: 0 0 12px rgba(215,243,107,.14); }
 .animated-lesson .concept-board { animation: none; }
 .animated-lesson .formula-card { animation-duration: .2s; }
@@ -105,6 +127,7 @@ h1 { margin-top: 18px; margin-bottom: 18px; font-size: clamp(28px, 3vw, 42px); }
 .family-group.all-girl { border-color: #e89b76; }
 .family-group.mixed { border-color: var(--acid); }
 @media (max-width: 700px) { .family-tree { grid-template-columns: 1fr; } .tree-line { width: 1px; height: 12px; margin: auto; } .tree-line:after { content: '↓'; top: 0; right: -5px; } .family-groups { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .interval-row { grid-template-columns: 28px 1fr; } .interval-row > small { grid-column: 2; } .physical-pieces { font-size: 8px; } }
 .named-rule { margin: 14px 0; padding: 13px 16px 14px; border: 1px solid rgba(232,155,118,.46); border-left: 3px solid #e89b76; background: rgba(232,155,118,.08); }
 .named-rule-label { display: block; margin-bottom: 6px; color: #e89b76; font: 9px var(--font-display); letter-spacing: .12em; }
 .named-rule strong { display: block; color: #f2ae8e; font: 14px var(--font-display); }
