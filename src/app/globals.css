@@ -23,3 +23,99 @@
 .sports-inputs { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 2px; color: #c6d2cb; font: 8px var(--font-display); } .sports-inputs span { border: 1px solid #3d514a; padding: 5px 7px; background: #202b28; } .sports-art { width: 255px; height: 172px; position: relative; margin: 8px auto 0; } .sports-circle { position: absolute; width: 125px; height: 125px; border-radius: 50%; display: grid; place-items: center; align-content: center; gap: 3px; font: 700 17px var(--font-display); } .sports-circle small { font: 8px var(--font-display); font-weight: 400; text-transform: uppercase; } .sports-f { left: 12px; top: 4px; border: 2px solid #a7d4ee; background: rgba(101,170,201,.25); color: #c1e5f7; } .sports-k { right: 12px; top: 4px; border: 2px solid #e99d79; background: rgba(195,105,72,.23); color: #f2b18e; } .sports-p { left: 65px; bottom: 0; border: 2px solid #d4e579; background: rgba(161,176,74,.23); color: #e2f695; } .sports-core { position: absolute; left: 50%; top: 73px; transform: translate(-50%, -50%); color: var(--acid); font: 12px var(--font-display); } .sports-calculation { margin-top: 3px; padding: 9px 11px; border: 1px solid #46524d; background: #202b28; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; align-items: baseline; } .calculation-label { grid-column: 1 / -1; color: #91ad70; font: 8px var(--font-display); letter-spacing: .08em; } .sports-calculation strong { color: #e7a06f; font: 9px var(--font-display); } .sports-calculation p { color: #e0f097; font: 10px var(--font-display); margin: 0; } .sports-known { margin-top: 6px; padding: 8px 11px; border: 1px solid #394840; background: rgba(215,243,107,.06); } .sports-known > div { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; } .sports-known > div span { color: #d7f36b; border: 1px solid #596b4d; padding: 4px 6px; font: 8px var(--font-display); }
 @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } .lesson-panel { padding: 42px 7vw 35px; border-right: 0; } .solution-panel { padding: 42px 7vw 35px; } .keyboard-hint { margin-top: 30px; } }
 @media (max-width: 560px) { .app-header { padding: 0 6vw; } .header-index { display: none; } .header-meta { gap: 0; } .stage-zones { grid-template-columns: 1fr; } .flow-arrow { transform: rotate(90deg); } .drawer-inner { grid-template-columns: repeat(6, 1fr); } .visual-stage { padding: 11px; } .solution-heading { align-items: start; gap: 10px; flex-direction: column; } .controls { gap: 18px; align-items: end; } .control-buttons { gap: 7px; } }
+
+/* Belső használatú, nyugodtabb felület: a levezetés és az animáció marad, a díszítés nem. */
+.app-shell { background: var(--paper); }
+.app-header { height: 56px; padding: 0 5vw; justify-content: flex-end; background: var(--paper); }
+.header-meta { gap: 16px; letter-spacing: 0; }
+.task-nav-button { font-size: 10px; }
+.lesson-panel { padding-top: 6vh; }
+h1 { margin-top: 18px; margin-bottom: 18px; font-size: clamp(28px, 3vw, 42px); }
+.solution-panel { padding-top: 6vh; }
+.solution-panel:before { display: none; }
+.formula-card:after { display: none; }
+.featured-group { background: transparent; border-left-color: #aebe79; }
+.problem-item.featured-item { color: #52642d; }
+.problem-item.featured-item:before { content: '2ZH'; }
+.problem-item.featured-item.selected { background: #e6edc9; }
+
+.study-picker { min-height: 100vh; display: grid; place-items: center; padding: 32px; background: var(--paper); }
+.study-picker-inner { width: min(760px, 100%); }
+.picker-kicker { margin: 0 0 18px; color: #8d8e88; font: 10px var(--font-display); letter-spacing: .14em; }
+.study-picker h1 { margin: 0 0 34px; font-size: clamp(32px, 5vw, 54px); letter-spacing: -.07em; }
+.study-options { display: grid; gap: 12px; }
+.study-option { width: 100%; display: grid; grid-template-columns: 52px 1fr auto; gap: 18px; align-items: center; padding: 24px 22px; border: 1px solid var(--line); background: #faf8f3; color: var(--ink); text-align: left; cursor: pointer; transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.study-option:hover { transform: translateX(4px); border-color: #9fa49b; background: #fffdf8; }
+.study-option-number { color: #9a9b94; font: 11px var(--font-display); }
+.study-option-copy { display: grid; gap: 7px; }
+.study-option-copy strong { font-size: 20px; letter-spacing: -.04em; }
+.study-option-copy small { color: #777873; font-size: 11px; line-height: 1.5; }
+.study-option-arrow { color: #72766e; font: 22px var(--font-display); }
+.zh-two { border-color: #c8d3a2; }
+.zh-two .study-option-number { color: #718547; }
+.picker-back { margin-right: auto; }
+@media (max-width: 560px) { .study-picker { padding: 24px; } .study-option { grid-template-columns: 34px 1fr auto; gap: 10px; padding: 20px 16px; } .study-option-copy strong { font-size: 17px; } .study-option-copy small { font-size: 10px; } }
+
+/* Fókuszált tanulófelület: csak a 2. ZH feladatai maradnak bal oldalon. */
+.compact-picker .picker-label { color: var(--acid); margin-bottom: 8px; }
+.compact-picker .problem-item { min-height: 38px; padding: 8px 10px; }
+.compact-picker .problem-item > span { display: flex; align-items: center; gap: 9px; }
+.compact-picker .problem-item > span b { color: var(--acid); font: 10px var(--font-display); }
+.compact-picker .problem-item small { font-size: 9px; }
+.step-list { max-height: 285px; overflow-y: auto; scrollbar-width: thin; }
+.problem-statement { max-height: 138px; overflow-y: auto; scrollbar-width: thin; }
+.animated-lesson { transform-origin: top center; }
+.animated-lesson .formula-card { animation: formulaGlow .8s ease both; }
+.animated-lesson .concept-board { animation: boardArrive .65s cubic-bezier(.22,1,.36,1) .08s both; }
+@keyframes boardArrive { from { opacity: 0; transform: translateY(12px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes formulaGlow { from { box-shadow: 0 0 0 rgba(215,243,107,0); } 45% { box-shadow: 0 0 28px rgba(215,243,107,.12); } to { box-shadow: 0 0 0 rgba(215,243,107,0); } }
+.chain-node, .factory-row, .family-outcomes span { animation: pieceIn .5s cubic-bezier(.22,1,.36,1) both; }
+.chain-node:nth-child(1), .factory-row:nth-child(2), .family-outcomes span:nth-child(1) { animation-delay: .12s; }
+.chain-node:nth-child(3), .factory-row:nth-child(3), .family-outcomes span:nth-child(2) { animation-delay: .18s; }
+.chain-node:nth-child(5), .factory-row:nth-child(4), .family-outcomes span:nth-child(3) { animation-delay: .24s; }
+@keyframes pieceIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+.stick-marker { z-index: 4; width: 3px; height: 48px; top: -8px !important; bottom: auto !important; margin-left: -1px; background: #f4f1eb; box-shadow: 0 0 12px rgba(255,255,255,.65); }
+.stick-marker:after { content: 'x'; position: absolute; top: -17px; left: -4px; color: #f4f1eb; font: 11px var(--font-display); }
+.outcome-highlight { border-color: var(--acid) !important; box-shadow: 0 0 12px rgba(215,243,107,.14); }
+.animated-lesson .concept-board { animation: none; }
+.animated-lesson .formula-card { animation-duration: .2s; }
+.chain-node, .factory-row, .family-outcomes span { animation: none; }
+.plain-explanation { margin-bottom: 13px; padding: 15px 17px; border-left: 3px solid var(--acid); background: #2b302f; }
+.plain-label { display: block; margin-bottom: 7px; color: var(--acid); font: 9px var(--font-display); letter-spacing: .12em; }
+.plain-explanation p { margin: 0; color: #f1f2e9; font-size: 15px; line-height: 1.55; }
+.technical-explanation { margin-bottom: 14px; padding-left: 2px; }
+.technical-explanation p { margin: 0; color: #aeb6b0; font-size: 12px; line-height: 1.55; }
+.takeaway b { color: #f4f1eb; font-size: 10px; letter-spacing: .08em; }
+.number-guide-intro { margin: 8px 0 13px; color: #8f9892; font-size: 11px; line-height: 1.45; }
+.family-tree { display: grid; grid-template-columns: 1fr 22px 1.5fr 22px 1fr; align-items: center; gap: 8px; margin: 20px 0 15px; }
+.tree-start, .tree-level, .tree-end { min-height: 48px; display: grid; place-content: center; padding: 7px; border: 1px solid #56605a; background: #262b2a; text-align: center; color: #d8ddd7; font: 10px var(--font-display); }
+.tree-start b, .tree-level b, .tree-end b { color: var(--acid); font-size: 13px; }
+.tree-start br + b { margin-top: 3px; }
+.tree-level { border-color: #a6d4ee; }
+.tree-level i { margin-top: 4px; color: #88928c; font-size: 8px; font-style: normal; }
+.tree-end small { display: block; margin-top: 3px; color: #88928c; font-size: 8px; }
+.tree-line { height: 1px; background: #68736b; position: relative; }
+.tree-line:after { content: '›'; position: absolute; right: -2px; top: -9px; color: var(--acid); font-size: 16px; }
+.family-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0 14px; }
+.family-group { min-height: 77px; padding: 10px 8px; border: 1px solid #56605a; background: #252a29; text-align: center; }
+.family-group strong { display: block; color: var(--acid); font: 16px var(--font-display); }
+.family-group span, .family-group small { display: block; margin-top: 4px; color: #c5cdc6; font: 9px var(--font-display); }
+.family-group small { color: #8c9590; }
+.family-group.excluded { border-color: #6e7771; }
+.family-group.all-girl { border-color: #e89b76; }
+.family-group.mixed { border-color: var(--acid); }
+@media (max-width: 700px) { .family-tree { grid-template-columns: 1fr; } .tree-line { width: 1px; height: 12px; margin: auto; } .tree-line:after { content: '↓'; top: 0; right: -5px; } .family-groups { grid-template-columns: 1fr; } }
+.named-rule { margin: 14px 0; padding: 13px 16px 14px; border: 1px solid rgba(232,155,118,.46); border-left: 3px solid #e89b76; background: rgba(232,155,118,.08); }
+.named-rule-label { display: block; margin-bottom: 6px; color: #e89b76; font: 9px var(--font-display); letter-spacing: .12em; }
+.named-rule strong { display: block; color: #f2ae8e; font: 14px var(--font-display); }
+.named-rule-formula { margin: 8px 0 4px; color: #fff1e9; }
+.named-rule-formula .latex-renderer { font-size: 16px; }
+.named-rule p { margin: 4px 0 0; color: #c9aaa0; font-size: 11px; line-height: 1.45; }
+@media (prefers-reduced-motion: reduce) { .animated-lesson *, .animated-lesson { animation: none !important; transition: none !important; } }
+
+/* 2. ZH: feladatspecifikus jelmagyarázatok és vizuális levezetések */
+.zh2-stick-art { margin-top: 20px; } .stick-legend, .family-legend { display: flex; flex-wrap: wrap; gap: 9px 18px; color: #aeb5b0; font: 10px var(--font-display); } .stick-legend i, .family-legend i { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 2px; } .legend-a { background: #d7f36b; } .legend-b { background: #e89b76; } .stick-scale { display: flex; justify-content: space-between; margin: 33px 3px 5px; color: #8c9590; font: 9px var(--font-display); } .stick-track { height: 32px; position: relative; border: 1px solid #56605a; background: #282d2c; } .stick-track i { position: absolute; top: 0; bottom: 0; } .stick-a-zone { left: 0; width: 100%; background: linear-gradient(to right, rgba(215,243,107,.48) 0 40%, transparent 40% 60%, rgba(215,243,107,.48) 60% 100%); } .stick-b-zone { left: 25%; width: 50%; border-left: 2px solid #e89b76; border-right: 2px solid #e89b76; background: rgba(232,155,118,.28); } .stick-intersection { left: 25%; width: 15%; border-left: 2px solid var(--acid); background: rgba(215,243,107,.25); } .stick-explain { display: flex; justify-content: space-between; margin-top: 9px; color: #7b8580; font: 9px var(--font-display); }
+.chain-flow { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 36px 0 25px; } .chain-node { min-width: 145px; padding: 14px 10px; border: 1px solid #56605a; background: #282d2c; text-align: center; } .chain-node strong { display: block; color: #f4f1eb; font: 13px var(--font-display); } .chain-node small { display: block; margin-top: 7px; color: #8f9993; font: 9px var(--font-display); } .node-0 { border-color: #a6d4ee; } .node-1 { border-color: #d7f36b; } .node-2 { border-color: #e89b76; } .chain-arrow { color: var(--acid); font: 20px var(--font-display); } .chain-result, .factory-total, .family-result { padding: 12px; border-left: 2px solid var(--acid); color: #e2e6df; background: #242827; font: 12px var(--font-display); } .chain-result span { color: #89938d; }
+.factory-grid { margin-top: 18px; font: 10px var(--font-display); } .factory-head, .factory-row { display: grid; grid-template-columns: .45fr 1.1fr 1.15fr 1.15fr; align-items: center; gap: 8px; padding: 10px 8px; border-bottom: 1px solid #343b38; } .factory-head { color: #89938d; text-transform: uppercase; font-size: 8px; } .factory-row { color: #d3d8d2; background: rgba(255,255,255,.015); } .factory-row strong { color: var(--acid); } .factory-focus { background: rgba(215,243,107,.12); border-color: var(--acid); } .factory-total { margin-top: 14px; text-align: center; } .factory-total b { color: var(--acid); }
+.family-legend { margin-top: 18px; } .family-outcomes { display: grid; grid-template-columns: repeat(8, 1fr); gap: 7px; margin-top: 18px; } .family-outcomes span { padding: 9px 3px; border: 1px solid #48504c; background: #272c2b; color: #cfd5cf; text-align: center; font: 11px var(--font-display); } .family-outcomes .has-girl { border-color: #e89b76; } .family-outcomes .mixed { background: rgba(215,243,107,.16); color: var(--acid); } .family-outcomes .all-boy { color: #8c9590; } .family-result { margin-top: 14px; text-align: center; }
+@media (max-width: 700px) { .chain-flow { flex-direction: column; } .chain-arrow { transform: rotate(90deg); } .factory-head, .factory-row { grid-template-columns: .5fr 1fr 1fr 1fr; font-size: 8px; } .family-outcomes { grid-template-columns: repeat(4, 1fr); } }

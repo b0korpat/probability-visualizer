@@ -1,4 +1,35 @@
 const guides: Record<string, Record<number, string[]>> = {
+  "zh2-stick-conditional": {
+    0: ["x a töréspont helye cm-ben a bal végétől mérve.", "Ω a teljes lehetséges töréspontok halmaza: 0 és 200 cm között.", "μ(E) az E eseményhez tartozó szakaszhossz.", "Mivel x egyenletes, valószínűség = kedvező hossz / 200."],
+    1: ["Az első darab hossza x, a másodiké 200−x.", "x<80 esetén a jobb darab 200−x>120.", "x>120 esetén a bal darab hosszabb 120 cm-nél.", "A két szélső intervallum hossza összesen 160 cm."],
+    2: ["B azt jelenti, hogy egyszerre x<150 és 200−x<150.", "A második feltételből x>50 következik.", "Így B=(50,150), amelynek hossza 100 cm."],
+    3: ["A∩B: mindkét esemény egyszerre teljesül.", "A B szakaszából csak az (50,80) és (120,150) részek maradnak.", "A két rész hossza 30+30=60 cm."],
+    4: ["P(A|B) jelentése: A esélye akkor, ha tudjuk, hogy B megtörtént.", "A B esemény lesz az új, 100 cm-es viszonyítási tartomány.", "A kedvező rész 60 cm, ezért 60/100=0,6."],
+    5: ["Függetlenség esetén a közös esélynek P(A)P(B)-vel kellene egyeznie.", "0,4 nem egyenlő 0,3-mal, ezért A és B függő események."],
+    6: ["A∩B az A és B közös része, a | jel feltételt jelent.", "A végső válaszok: 0,8; 0,5; 0,3; 0,6."]
+  },
+  "zh2-conditional-chain": {
+    0: ["A₁, A₂, A₃ három egymás utáni esemény.", "A₂|A₁ azt jelenti: A₂ valószínűsége A₁ bekövetkezése mellett.", "Az ∩ jel az egyszerre bekövetkezést jelenti."],
+    1: ["A láncszabályban az első eseményt a következő feltételes esélyekkel szorozzuk.", "Azért szorzunk, mert mindhárom lépésnek teljesülnie kell."],
+    2: ["0,096 decimális alakban 9,6%.", "A három szám rendre az első, második és harmadik láncszem esélye."],
+    3: ["A tört számlálója a három esemény közös esélye.", "A nevező P(A₁) azért oszt, mert A₁ már adott feltétel." ]
+  },
+  "zh2-factory-bayes": {
+    0: ["Gᵢ: a termék az i-edik gépről származik; D: a termék selejtes.", "A G₁,G₂,G₃ események kizárják és lefedik egymást."],
+    1: ["P(D∩G₃) az egyszerre selejtes és harmadik gépes termékek aránya.", "P(D|G₃) a G₃ gépen belüli selejtarány; P(G₃) a gép termelési része."],
+    2: ["A teljes valószínűség a három gép hozzájárulásait összeadja.", "0,01+0,03+0,05=0,09, vagyis 9% az összes selejt."],
+    3: ["Bayes megfordítja a kérdést: selejtet látva melyik gép volt a forrás?", "A nevező P(D), mert az összes selejtes termék közül választunk."],
+    4: ["A számláló a G₃-ból érkező selejtek 5%-os része.", "5/9≈55,56%: a selejtek több mint fele a harmadik gépről jön."]
+  },
+  "zh2-family-genders": {
+    0: ["F=fiú, L=lány; minden pozícióban két lehetőség van.", "2³=8 azért, mert három egymástól független gyermeknél 2·2·2 sorrend lehetséges."],
+    1: ["A komplementere az FFF, ezért P(A)=1−1/8.", "B komplementere az FFF vagy LLL, ezért két esetet vonunk ki."],
+    2: ["B⊂A azt jelenti, hogy minden vegyes családban biztosan van lány.", "Ezért A∩B=B és P(A|B)=1."],
+    3: ["A és B függetlenségéhez P(A∩B)=P(A)P(B) kellene.", "Az eltérő értékek bizonyítják, hogy az események nem függetlenek."],
+    4: ["Négy gyermeknél 2⁴=16 sorrend van.", "A négy fiú az egyetlen olyan eset, amelyben nincs lány."],
+    5: ["Négy gyermeknél a két egyszínű eset FFFF és LLLL.", "A vegyes esetek száma 16−2=14, és továbbra is B⊂A."],
+    6: ["P(B|A) a legalább egy lányos családokon belüli vegyes arány.", "14/15 azt jelenti: 15 A-esetből 14 vegyes."]
+  },
   "shirt-drawer": {
     0: ["A 12 a fiókban lévő összes póló száma.", "A 3 azt jelenti, hogy egyszerre három pólót választunk ki.", "A kombináció azért kell, mert a húzás sorrendje nem számít.", "A 220 az összes lehetséges hárompólós csoport száma."],
     1: ["Az A esemény: legalább egy fekete pólót húzunk.", "A komplementer azt az esetet jelenti, amikor A nem történik meg.", "Ez itt pontosan 0 fekete, vagyis mindhárom póló fehér.", "Az 1 a biztos esemény valószínűsége: minden húzás vagy A, vagy a komplementere."],

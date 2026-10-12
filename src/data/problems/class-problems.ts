@@ -10,7 +10,6 @@ export const sportsVillageProblem: ProblemDefinition = {
   title: "Sportolók a faluban",
   category: "venn",
   visualizer: "venn",
-  featured: true,
   statement: "Egy faluban három sport eseményeit vizsgáljuk. Az alapadatok végig változatlanok: P(A)=25% foci, P(B)=40% kosárlabda, P(C)=45% pingpong, P(A∩B)=15%, P(A∩C)=10%, P(B∩C)=20%, P(A∩B∩C)=5%.",
   totalSteps: 6,
   steps: [
