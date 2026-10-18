@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { MathStepPlayer } from "@/components/visualizer/MathStepPlayer";
 import { shirtsProblem } from "@/data/problems/shirts-problem";
 import { extendedProblems } from "@/data/problems/extended-problems";
@@ -21,6 +22,11 @@ export default function Page() {
       <p className="picker-kicker">VALÓSZÍNŰSÉGSZÁMÍTÁS</p>
       <h1>Mit gyakoroljunk?</h1>
       <div className="study-options">
+        <Link href="/nagy-zh1/" className="study-option zh-grand" style={{ textDecoration: "none" }}>
+          <span className="study-option-number">N01</span>
+          <span className="study-option-copy"><strong>NAGY ZH1</strong><small>Kidolgozott feladatok · interaktív ábrák · képlettár és ZH-gyorsmódszerek</small></span>
+          <span className="study-option-arrow">→</span>
+        </Link>
         <button className="study-option zh-one" onClick={() => setSelected("zh1")}>
           <span className="study-option-number">01</span>
           <span className="study-option-copy"><strong>1. ZH anyaga</strong><small>{zh1Problems.length} feladat · kombinatorika, események, geometria</small></span>
