@@ -38,7 +38,37 @@
 @media(max-width:1000px) { .workspace { grid-template-columns:225px minmax(0,1fr); padding:0 3vw; }.lesson { padding-left:3vw; }.sidebar { padding-right:14px; }.stepTabs button { font-size:9px; padding:12px 9px; }.heroStats { min-width:210px; }.headerMeta { display:none; } }
 @media(max-width:720px) { .header { padding:16px 5vw; }.brand { font-size:13px; }.hero { padding:30px 5vw 25px; align-items:flex-start; }.heroStats { display:none; }.heroCopy { font-size:16px; }.tabs { gap:18px; overflow-x:auto; }.tabs button { font-size:10px; white-space:nowrap; }.workspace { display:block; padding:0 5vw; }.sidebar { border-right:0; border-bottom:1px solid #ccd4bf; padding:22px 0 15px; }.search { margin-bottom:15px; }.sidebar nav { display:flex; overflow-x:auto; gap:12px; max-height:190px; padding-bottom:10px; }.navGroup { min-width:210px; margin:0; }.navGroup button { padding:7px; font-size:11px; }.lesson { padding:25px 0; }.lessonTopline { font-size:9px; }.lesson>h2 { font-size:30px; }.statement { padding:20px; }.statement>p { font-size:13px; }.data span { font-size:10px; }.stepBody { padding:20px; }.stepTabs { grid-template-columns:repeat(2,minmax(0,1fr)); }.stepTabs button { min-height:65px; gap:3px; font-size:10px; }.stepControls { padding:12px 15px; }.stepControls button { font-size:10px; }.formula { padding:13px; }.formula :global(.latex-renderer) { font-size:15px; }.figure { padding:17px; }.rule { flex-direction:column; gap:8px; }.hackGrid { grid-template-columns:1fr; }.secondary { padding-top:30px; }.bottom { flex-direction:column; }.matrix th,.matrix td { padding:8px; }.visualResult { font-size:11px; } }
 @media(prefers-reduced-motion:no-preference) { .navGroup button,.hackGrid>button { transition:background .15s,border-color .15s; } }
-.root .teachingFigure { margin:0 24px 24px; align-self:start; }.root .teachingFigure svg { max-height:none; }.root .teachingFigure figcaption { font-size:12px; color:#becdb5; }
-.teachingOrigins { padding:0 24px 24px; }.teachingOrigins .numberOrigins { margin-top:0; }
-@media(min-width:1200px) { .root .teachingFigure { margin:24px 20px 24px 0; grid-column:2; grid-row:1 / span 2; }.teachingGrid>.stepBody { grid-column:1; grid-row:1; }.teachingOrigins { grid-column:1; grid-row:2; } }
-@media(max-width:720px) { .root .teachingFigure { margin:0 12px 20px; padding:16px; } }
+.root .teachingFigure { margin:0 24px 24px; align-self:stretch; display:flex; flex-direction:column; min-height:540px; }.root .teachingFigure svg { max-height:none; }.root .teachingFigure figcaption { font-size:12px; color:#becdb5; margin-top:auto; }
+.sceneContent { flex:1; display:flex; flex-direction:column; justify-content:space-between; }
+.teachingGrid .formula { min-height:76px; display:flex; align-items:center; justify-content:center; }
+.teachingOrigins { padding:0 24px 24px; min-height:190px; }.teachingOrigins .numberOrigins { margin-top:0; }
+@media(min-width:1200px) { .teachingGrid { min-height:660px; }.root .teachingFigure { margin:24px 20px 24px 0; grid-column:2; grid-row:1 / span 2; }.teachingGrid>.stepBody { grid-column:1; grid-row:1; min-height:380px; }.teachingOrigins { grid-column:1; grid-row:2; } }
+@media(max-width:720px) { .root .teachingFigure { margin:0 12px 20px; padding:16px; min-height:420px; } }
+
+
+/* The task catalog opens above the lesson, using normal page scrolling. */
+.root .workspace { display:block; max-width:1200px; padding:24px 4vw 0; }
+.root .sidebar { padding:0; border:1px solid #c9d0c1; background:#faf9f3; margin-bottom:24px; }
+.pickerSummary { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 20px; list-style:none; }
+.pickerSummary::-webkit-details-marker { display:none; }
+.pickerSummary small { display:block; font-size:12px; font-weight:400; color:#526447; margin-top:5px; }
+.pickerSummary > span:last-child { flex-shrink:0; font-size:12px; }
+.pickerContent { padding:0 20px 20px; }
+.root .sidebar nav { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:20px; overflow:visible; max-height:none; padding:0; }
+.root .navGroup { min-width:0; margin:0; }
+.root .navGroup button { font-size:14px; min-height:48px; }
+.root .lesson { padding:0 0 35px; max-width:none; }
+.root .tabs { flex-wrap:wrap; gap:0 24px; overflow:visible; }
+.root .tabs button { white-space:normal; text-align:left; }
+.root .formula { min-width:0; max-width:100%; display:block; overflow:visible; }
+.root .formula :global(.latex-renderer) { font-size:18px; }
+.root .teachingGrid { grid-template-columns:minmax(0,1fr); min-height:0; }
+.root .teachingGrid > .stepBody { grid-column:auto; grid-row:auto; min-height:0; }
+.root .teachingOrigins { grid-column:auto; grid-row:auto; min-height:0; }
+.root .teachingFigure { grid-column:auto; grid-row:auto; margin:0 24px 24px; min-height:0; }
+.root .sceneContent { gap:20px; }
+.root .secondary { min-width:0; }
+.root .secondary div { min-width:0; }
+.root .stepControls { flex-wrap:wrap; }
+.root .stepControls > span { flex-basis:100%; order:3; }
+@media(max-width:600px) { .pickerSummary { align-items:flex-start; padding:16px; }.pickerSummary > span:last-child { max-width:90px; }.root .teachingGrid .stepBody { padding:16px; }.root .formula { padding:12px; }.root .teachingFigure { margin:0 12px 20px; }.root .tabs { gap:0 16px; }.root .tabs button { max-width:46%; }.root .lessonTopline { flex-wrap:wrap; } }
